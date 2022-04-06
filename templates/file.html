@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传</title>
+</head>
+<style>
+    body{
+        /* margin:0px; */
+        /* padding:0px; */
+        /* font-family:sans-serif; */
+        background-image:-webkit-linear-gradient(60deg,rgba(218, 169, 215, 0.637),rgba(128, 174, 235, 0.904));
+        /* background: url(bs3.jpg); */
+        /* background-size:cover; */
+        
+    }
+    .box{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        /*实现块元素百分比下居中*/
+        width: 450px;
+        padding:50px;
+        background: rgba(29, 28, 28, 0.8);
+        box-sizing:border-box;
+        box-shadow: 0px 15px 25px rgba(19, 18, 18, 0.5);
+        border-radius:15px;
+    }
+    .box .inputbox{
+        position:relative;
+    }
+    .box .inputbox input{
+        width: 100%;
+        padding:10px 0;
+        font-size:16px;
+        color:#fff;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+        border:none;
+        border-bottom: 1px solid #fff;
+        outline:none;
+        background: transparent;
+    }
+    .box .inputbox label{
+        position:absolute;
+        top:0px;
+        left:0px;
+        padding:10px 0;
+        font-size: 16px;
+        color:#fff;
+        pointer-events:none;
+        transition:.5s;
+    }
+    .box .inputbox input:focus ~ label,
+    .box .inputbox input:valid ~ label
+    {
+        top:-18px;
+        left:0;
+        color:#03a9f4;
+        font-size:14px;
+    }
+    .box input[type="submit"]
+    {
+        background: transparent;
+        border:none;
+        outline:none;
+        font-size: 16px;
+        color:#fff;
+        background: #03a9f4;
+        padding:15px 43%;
+        cursor: pointer;
+        border-radius:10px;
+    }
+    @media screen and (max-width: 391px) {
+        .box{
+            width: 300px;
+        }
+    }
+</style>
+<body>
+    <div class="box">
+        <form action="/" enctype="multipart/form-data" method="post">
+            <div class="inputbox">
+                <input type="file" name="file" id="file_one" />
+            </div>
+            <input type="submit" name="" value="上传" id="btn" />
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+    btn.onclick = function (){
+        // alert("测试弹出")
+        var filename=document.getElementById('file_one').value;
+        var type = filename.toLowerCase().split('.').splice(-1)
+        if (filename == ''){
+            alert("文件内容为空")
+            return false;
+        }else{
+            if (type[0] !== 'pdf'){
+                alert("上传文件格式不正确，请上传pdf格式文件")
+                return false;
+            }else{
+                alert("上传成功")
+            }
+
+        }
+    }
+</script>
+</html>
