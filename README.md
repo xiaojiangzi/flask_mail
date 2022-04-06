@@ -6,3 +6,5 @@ MAIL_USERNAME = '',添加自己的邮箱地址
 MAIL_PASSWORD = '',开启自己邮箱的密码可以自行百度我这里用的是163的
  msg = Message(title, sender='邮箱',recipients=class_names)
  sender后添加自己的邮箱
+ 创建file文件夹以及email.txt
+ 如果想要多人群发邮件就在email.txt中进行添加每个邮箱一个账号
